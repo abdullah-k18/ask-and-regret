@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ask & Regret
+
+> The AI assistant that's always wrong, always confident, and genuinely trying its best.
+
+🔗 **[ask-and-regret.vercel.app](https://ask-and-regret.vercel.app)**
+
+---
+
+## What is this?
+
+Ask & Regret is a deliberately terrible AI assistant that looks exactly like a real AI product — clean UI, confidence meters, system logs — but is entirely dedicated to being wrong. Powered by Gemini AI, sabotaged by us.
+
+## Features
+
+- **4 Personality Modes**
+  - 🤓 Overconfident Idiot — wrong but 100% certain
+  - 🧐 Philosopher — answers everything with vague existential musings
+  - 😤 Passive-Aggressive — judges you for asking
+  - ☕ Teapot Mode — refuses everything via HTTP 418
+
+- **Misinterpretation Engine** — distorts your question before sending it to the AI
+- **Moving Send Button** — flees from your cursor on hover
+- **Confidence Meter** — always 99.8% confidence, always ??? accuracy
+- **Random 418 Errors** — 10% of requests get refused by a teapot
+- **Mood Swings** — personality auto-switches every few messages
+- **Fake System Logs** — `[ERROR] truth.js has crashed`
+- **Inverted Home Page** — starts at the footer, scrolling down goes up
+
+## Useless API as a Service™
+
+Three public endpoints:
+
+```bash
+GET /api/random-excuse
+GET /api/fake-motivation
+GET /api/probability-of-success?goal=anything   # always ~3%
+```
+
+## Tech Stack
+
+- **Next.js 15** (App Router)
+- **Gemini API** (`gemini-flash-latest`)
+- **Tailwind CSS**
 
 ## Getting Started
 
-First, run the development server:
+```bash
+git clone https://github.com/abdullah-k18/ask-and-regret
+cd ask-and-regret
+npm install
+```
+
+Add your Gemini API key (optional — app works without it via fallbacks):
+
+```bash
+# .env.local
+GEMINI_API_KEY=your_key_here
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No rights reserved. We lost them.
