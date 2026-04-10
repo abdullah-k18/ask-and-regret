@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0a0f;
+  --surface: #13131f;
+  --surface2: #1a1a2e;
+  --border: #2a2a3f;
+  --accent: #8b5cf6;
+  --accent-dim: #8b5cf622;
+  --accent-border: #8b5cf655;
+  --text: #e8e8ff;
+  --muted: #6666aa;
+  --dim: #3a3a5f;
+  --error: #ef4444;
+  --success: #10b981;
+  --warn: #f59e0b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans, Arial, sans-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Animations ── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.2; }
+  30%            { opacity: 1; }
 }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-border); }
+  50%       { box-shadow: 0 0 20px var(--accent-border), 0 0 40px var(--accent-dim); }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20%       { transform: translate(-2px, 2px); }
+  40%       { transform: translate(2px, -2px); }
+  60%       { transform: translate(-1px, 1px); }
+  80%       { transform: translate(1px, -1px); }
+}
+
+@keyframes scanline {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+.fade-in-up  { animation: fade-in-up 0.25s ease-out both; }
+.pulse-glow  { animation: pulse-glow 2.5s ease-in-out infinite; }
+.glitch      { animation: glitch 0.35s ease-in-out; }
+
+.dot1 { animation: typing-dot 1.4s ease-in-out infinite; }
+.dot2 { animation: typing-dot 1.4s ease-in-out 0.2s infinite; }
+.dot3 { animation: typing-dot 1.4s ease-in-out 0.4s infinite; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
